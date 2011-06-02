@@ -10,7 +10,7 @@
 	
 	<style type="text/css" media="screen">
 		body { background:#fff;font-family:Arial,Helvetica,sans-serif;font-size:100%;margin:20px; }
-		a { text-decoration:none;color:#1152c8; }
+		a { text-decoration:none;color:#ba0100; }
 		fieldset { border:1px solid #ccc;margin:0 0 20px 0; }
 		input { margin:auto; }
 		button { margin:auto;text-shadow:0 1px 1px #000;text-transform:uppercase; }
