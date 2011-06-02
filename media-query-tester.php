@@ -82,7 +82,7 @@
 	
 	<footer>
 		<p>
-		&copy; 2010 - <?php echo date('Y'); ?> <a href="http://bueltge.de/">bueltge.de</a> &middot; <a href="http://bueltge.de/impressum/">Imprint / Impressum</a> &middot; <a href="http://bueltge.de/simple-media-queries-tester/1239/">Simple Media Queries Tester <small>(german post about this)</small></a>
+		&copy; 2010 - <?php echo date('Y'); ?> <a href="http://bueltge.de/">bueltge.de</a> &middot; <a href="http://bueltge.de/impressum/">Imprint / Impressum</a> &middot; Blogpost about the Simple Media Queries Tester <a href="http://bueltge.de/simple-media-queries-tester/1239/">german</a> | <a href="http://wpengineer.com/2160/simple-media-queries-tester/">english</a>
 		</p>
 	</footer>
 	
