@@ -13,6 +13,7 @@
 		a { text-decoration:none;color:#ba0100; }
 		fieldset { border:1px solid #ccc;margin:0 0 20px 0; }
 		input { margin:auto; }
+		h1 { margin-top:0; }
 		button { margin:auto;text-shadow:0 1px 1px #000;text-transform:uppercase; }
 		button:hover { background:#1152c8;color:#000;cursor:pointer; }
 		input:active, input:focus { outline:none;border:1px solid #333;background:#fff;color:#000;-moz-border-radius:20px;-webkit-border-radius:20px;-khtml-border-radius:20px;border-radius:20px; }
@@ -30,11 +31,18 @@
 		footer { display:block;clear:both;color:#333;border:2px solid #ba0100;background:#fff; }
 	</style>
 	
+	<script src="http://bueltge.de/mv/?js"></script>
+	
 </head> 
 <body>
 	<a href="https://github.com/bueltge/Simple-Media-Queries-Tester"><img style="position:absolute;top:0;right:0;border:0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
-	
+	<?php
+	$path_parts = explode('/', $_SERVER['PHP_SELF']);
+	if ('test' === $path_parts[1])
+		$path_parts = '<a href="http://bueltge.de">bueltge.de</a> &raquo; <a href="http://bueltge.de/' . $path_parts[1] . '/">' . $path_parts[1] . '</a> &raquo;';
+	?>
 	<header>
+		<nav><small>Du bist hier: <?php echo $path_parts; ?></small></nav>
 		<h1><a href="http://bueltge.de/" title="to the weblog of the author">Simple Media Queries Tester</a></h1>
 	</header>
 	
