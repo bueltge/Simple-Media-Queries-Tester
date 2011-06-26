@@ -86,6 +86,7 @@
 			echo '<p>no page loads - enter address!</p>';
 		}
 		?>
+		<p>i: See also my <a href="http://bueltge.de/test/media-query-debugger.php" title="see the Media Queries Debugger live">Simple Media Queries Debugger</a></p>
 	</section>
 	
 	<footer>
