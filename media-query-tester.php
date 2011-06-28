@@ -28,6 +28,7 @@
 		section strong { margin:5px 0 -10px 20px;}
 		section div { float:left;margin-bottom:20px; }
 		section div.fullsize { clear:both; }
+		aside { clear:both;}
 		footer { display:block;clear:both;color:#333;border:2px solid #ba0100;background:#fff; }
 	</style>
 	
@@ -86,7 +87,9 @@
 			echo '<p>no page loads - enter address!</p>';
 		}
 		?>
-		<p>i: See also my <a href="http://bueltge.de/test/media-query-debugger.php" title="see the Media Queries Debugger live">Simple Media Queries Debugger</a></p>
+		<aside>
+			<p>i: See also my <a href="http://bueltge.de/test/media-query-debugger.php" title="see the Media Queries Debugger live">Simple Media Queries Debugger</a></p>
+		</aside>
 	</section>
 	
 	<footer>
