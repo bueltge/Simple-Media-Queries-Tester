@@ -25,21 +25,29 @@
 			<fieldset>
 				<legend>Test your URL</legend>
 				<label for="testurl">Address</label>
-				<input type="text" name="testurl" id="testurl" value="<?php if ( isset($_GET['testurl']) ) echo htmlspecialchars( strip_tags($_GET['testurl']) ); ?>" placeholder="Input your test url here" size="70">
+				<input type="text" name="testurl" id="testurl" value="<?php if ( isset($_GET['testurl']) ) echo htmlspecialchars( strip_tags($_GET['testurl']) ); ?>" placeholder="Input your test url here">
 				<button type="submit">Test it!</button>
 			</fieldset>
 		</form>
 		<div id="iframevalues">
 			<fieldset>
 				<legend>Set Values for iframes</legend>
+				<div>
 				<label for="testurl">Netbook Width</label>
 				<input type="text" name="iframe1width" value="" id="iframe1width"/>
+				</div>
+				<div>
 				<label for="testurl">Mobile Width</label>
 				<input type="text" name="iframe2width" value="" id="iframe2width"/>
+				</div>
+				<div>
 				<label for="testurl">Desktop Width</label>
 				<input type="text" name="iframe3width" value="" id="iframe3width"/>
+				</div>
+				<div>
 				<label for="testurl">Height Width</label>
 				<input type="text" name="iframeheight" value="" id="iframeheight"/>
+				</div>
 				<button onclick="javascript:location.reload(true);" type="submit">Set values!</button>
 				<button onclick="javascript:localStorage.clear();javascript:location.reload(true);" type="reset" class="clear">Clear storage</button>
 			</fieldset>
@@ -54,9 +62,9 @@
 			else
 				$iframeurl = 'http://www.' . $newURL;
 			
-			echo '<div class="netbook"><strong>Netbook <small id="iframe1widthtxt"> </small></strong><br /><iframe name="netbook" id="iframe1widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
-			echo '<div class="mobile"><strong>Mobile <small id="iframe2widthtxt"> </small></strong><br /><iframe name="mobile" id="iframe2widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
-			echo '<div class="fullsize"><strong>Desktop <small id="iframe3widthtxt"> </small></strong><br /><iframe name="fullsize" id="iframe3widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
+			echo '<div class="netbook"><strong>Netbook <small id="iframe1widthtxt"> </small></strong><iframe name="netbook" id="iframe1widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
+			echo '<div class="mobile"><strong>Mobile <small id="iframe2widthtxt"> </small></strong><iframe name="mobile" id="iframe2widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
+			echo '<div class="fullsize"><strong>Desktop <small id="iframe3widthtxt"> </small></strong><iframe name="fullsize" id="iframe3widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
 			
 		} else {
 			echo '<p>no page loads - enter address!</p>';
