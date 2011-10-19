@@ -8,8 +8,8 @@ audio:not([controls]) { display: none; }
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 body { margin: 0; font-size: 100%; line-height: 1.5; }
 body, button, input, select, textarea { font-family: 'Droid Sans',sans-serif; color: #222; }
-::-moz-selection { background: #fcfcfc; color: #444; text-shadow: none; }
-::selection { background: #fcfcfc; color: #444; text-shadow: none; }
+::-moz-selection { background: #fed0d0; color: #444; text-shadow: none; }
+::selection { background: #fed0d0; color: #444; text-shadow: none; }
 
 /* Links */
 a, a:visited { color: #db3131; }
@@ -178,12 +178,12 @@ button:active {
    background: #ccc;
    background-image: -khtml-gradient(linear, left top, left bottom, from(#ccc), to(#e2e2e2));
    background-image: -moz-linear-gradient(top, #ccc, #e2e2e2);
-   background-image: -ms-linear-gradient(top, #ccc, #e2e2e2);
+   background-image: -ms-linear-gradient(top, #cccccc, #e2e2e2);
    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccc), color-stop(100%, #e2e2e2));
    background-image: -webkit-linear-gradient(top, #ccc, #e2e2e2);
    background-image: -o-linear-gradient(top, #ccc, #e2e2e2);
    background-image: linear-gradient(top, #ccc, #e2e2e2);
-   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc', endColorstr='#e2e2e2', GradientType=0);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#e2e2e2', GradientType=0);
 }
 
 .clear {color: #b4b1b1; }
