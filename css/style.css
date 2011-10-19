@@ -8,8 +8,8 @@ audio:not([controls]) { display: none; }
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 body { margin: 0; font-size: 100%; line-height: 1.5; }
 body, button, input, select, textarea { font-family: 'Droid Sans',sans-serif; color: #222; }
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { background: #fcfcfc; color: #444; text-shadow: none; }
+::selection { background: #fcfcfc; color: #444; text-shadow: none; }
 
 /* Links */
 a, a:visited { color: #db3131; }
