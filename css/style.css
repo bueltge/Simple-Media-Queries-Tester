@@ -173,8 +173,18 @@ button:hover {
    background-image: -o-linear-gradient(top, #e4e4e4, #b3b2b2);
    background-image: linear-gradient(top, #e4e4e4, #b3b2b2);
    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d3d2d2', endColorstr='#e4e4e4', GradientType=0);
-   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-   font-size: 0.9em;
+}
+
+button:active {
+   background: #ccc;
+   background-image: -khtml-gradient(linear, left top, left bottom, from(#ccc), to(#e2e2e2));
+   background-image: -moz-linear-gradient(top, #ccc, #e2e2e2);
+   background-image: -ms-linear-gradient(top, #ccc, #e2e2e2);
+   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccc), color-stop(100%, #e2e2e2));
+   background-image: -webkit-linear-gradient(top, #ccc, #e2e2e2);
+   background-image: -o-linear-gradient(top, #ccc, #e2e2e2);
+   background-image: linear-gradient(top, #ccc, #e2e2e2);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc', endColorstr='#e2e2e2', GradientType=0);
 }
 
 .clear {color: #b4b1b1; }
