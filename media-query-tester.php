@@ -1,37 +1,10 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-	<meta charset=utf-8 /> 
-	
+	<meta charset=utf-8 /> 	
 	<title>Simple Media Queries Tester</title> 
-	
 	<meta name="description" content="Simple Media Queries Tester" /> 
-	<meta name="author" content="Frank Bueltge - http://bueltge.de" /> 
-	
-	<style type="text/css" media="screen">
-		body { background:#fff;font-family:Arial,Helvetica,sans-serif;font-size:100%;margin:20px; }
-		a { text-decoration:none;color:#ba0100; }
-		fieldset { border:1px solid #ccc;margin:0 0 20px 0; }
-		input { margin:auto; }
-		h1 { margin-top:0; }
-		button { margin:auto;text-shadow:0 1px 1px #000;text-transform:uppercase; }
-		button:hover { background:#1152c8;color:#000;cursor:pointer; }
-		input:active, input:focus { outline:none;border:1px solid #333;background:#fff;color:#000;-moz-border-radius:20px;-webkit-border-radius:20px;-khtml-border-radius:20px;border-radius:20px; }
-		fieldset, legend, input, button, iframe, footer {
-		background:#333;color:#fff;padding:5px 15px;border:1px solid #333;-moz-border-radius:20px;-webkit-border-radius:20px;-khtml-border-radius:20px;border-radius:20px; }
-		fieldset, legend { background:#ccc;color:#000;padding-bottom:20px; }
-		legend { padding:4px 25px;-webkit-box-shadow: 2px 2px 2px #333; }
-		button.clear { float:right;background: #666; }
-		div#iframevalues { width:100%; }
-		#iframevalues input { width:50px;margin-right:10px; }
-		iframe { margin:0 10px;border:1px solid #ccc; }
-		section strong { margin:5px 0 -10px 20px;}
-		section div { float:left;margin-bottom:20px; }
-		section div.fullsize { clear:both; }
-		aside { clear:both;}
-		footer { display:block;clear:both;color:#333;border:2px solid #ba0100;background:#fff; }
-	</style>
-	
+	<meta name="author" content="Frank Bueltge - http://bueltge.de" /> 	
 </head> 
 <body>
 	<a href="https://github.com/bueltge/Simple-Media-Queries-Tester"><img style="position:absolute;top:0;right:0;border:0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
@@ -134,6 +107,5 @@
 		getStorage('local', 'iframe3width', '960');
 	</script>
 	<script src="http://bueltge.de/mv/?js"></script>
-	
 </body>
 </html>
