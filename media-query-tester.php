@@ -45,7 +45,7 @@
 				<input type="text" name="iframe3width" value="" id="iframe3width"/>
 				</div>
 				<div>
-				<label for="testurl">Height Width</label>
+				<label for="testurl">Height</label>
 				<input type="text" name="iframeheight" value="" id="iframeheight"/>
 				</div>
 				<button onclick="javascript:location.reload(true);" type="submit">Set values!</button>
