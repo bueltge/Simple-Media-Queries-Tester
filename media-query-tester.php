@@ -7,30 +7,7 @@
 	
 	<meta name="description" content="Simple Media Queries Tester" /> 
 	<meta name="author" content="Frank Bueltge - http://bueltge.de" /> 
-	
-	<style type="text/css" media="screen">
-		body { background:#fff;font-family:Arial,Helvetica,sans-serif;font-size:100%;margin:20px; }
-		a { text-decoration:none;color:#ba0100; }
-		fieldset { border:1px solid #ccc;margin:0 0 20px 0; }
-		input { margin:auto; }
-		h1 { margin-top:0; }
-		button { margin:auto;text-shadow:0 1px 1px #000;text-transform:uppercase; }
-		button:hover { background:#1152c8;color:#000;cursor:pointer; }
-		input:active, input:focus { outline:none;border:1px solid #333;background:#fff;color:#000;-moz-border-radius:20px;-webkit-border-radius:20px;-khtml-border-radius:20px;border-radius:20px; }
-		fieldset, legend, input, button, iframe, footer {
-		background:#333;color:#fff;padding:5px 15px;border:1px solid #333;-moz-border-radius:20px;-webkit-border-radius:20px;-khtml-border-radius:20px;border-radius:20px; }
-		fieldset, legend { background:#ccc;color:#000;padding-bottom:20px; }
-		legend { padding:4px 25px;-webkit-box-shadow: 2px 2px 2px #333; }
-		button.clear { float:right;background: #666; }
-		div#iframevalues { width:100%; }
-		#iframevalues input { width:50px;margin-right:10px; }
-		iframe { margin:0 10px;border:1px solid #ccc; }
-		section strong { margin:5px 0 -10px 20px;}
-		section div { float:left;margin-bottom:20px; }
-		section div.fullsize { clear:both; }
-		aside { clear:both;}
-		footer { display:block;clear:both;color:#333;border:2px solid #ba0100;background:#fff; }
-	</style>
+	<link rel="stylesheet" href="css/style.css" media="screen" />
 	
 </head> 
 <body>
@@ -49,22 +26,22 @@
 		<form id="mediaqueriestest" action="<?php echo htmlspecialchars( strip_tags($_SERVER['PHP_SELF']) ); ?>" method="get">
 			<fieldset>
 				<legend>Test your URL</legend>
-				<label for="testurl">Address</label>
-				<input type="text" name="testurl" id="testurl" value="<?php if ( isset($_GET['testurl']) ) echo htmlspecialchars( strip_tags($_GET['testurl']) ); ?>" placeholder="Input your test url here" size="70">
+				<p><label for="testurl">Address</label>
+				<input type="text" name="testurl" id="testurl" value="<?php if ( isset($_GET['testurl']) ) echo htmlspecialchars( strip_tags($_GET['testurl']) ); ?>" placeholder="Input your test url here" size="70" /></p>
 				<button type="submit">Test it!</button>
 			</fieldset>
 		</form>
 		<div id="iframevalues">
 			<fieldset>
 				<legend>Set Values for iframes</legend>
-				<label for="testurl">Netbook Width</label>
-				<input type="text" name="iframe1width" value="" id="iframe1width"/>
-				<label for="testurl">Mobile Width</label>
-				<input type="text" name="iframe2width" value="" id="iframe2width"/>
-				<label for="testurl">Desktop Width</label>
-				<input type="text" name="iframe3width" value="" id="iframe3width"/>
-				<label for="testurl">Height Width</label>
-				<input type="text" name="iframeheight" value="" id="iframeheight"/>
+				<p><label for="testurl">Netbook Width</label>
+				<input type="text" name="iframe1width" value="" id="iframe1width"/></p>
+				<p><label for="testurl">Mobile Width</label>
+				<input type="text" name="iframe2width" value="" id="iframe2width"/></p>
+				<p><label for="testurl">Desktop Width</label>
+				<input type="text" name="iframe3width" value="" id="iframe3width"/></p>
+				<p><label for="testurl">Height Width</label>
+				<input type="text" name="iframeheight" value="" id="iframeheight"/></p>
 				<button onclick="javascript:location.reload(true);" type="submit">Set values!</button>
 				<button onclick="javascript:localStorage.clear();javascript:location.reload(true);" type="reset" class="clear">Clear storage</button>
 			</fieldset>
@@ -84,7 +61,7 @@
 			echo '<div class="fullsize"><strong>Desktop <small id="iframe3widthtxt"> </small></strong><br /><iframe name="fullsize" id="iframe3widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
 			
 		} else {
-			echo '<p>no page loads - enter address!</p>';
+			echo '<p class="empty">No page loads - Enter address!</p>';
 		}
 		?>
 		<aside>
