@@ -16,6 +16,8 @@
 	$path_parts = explode('/', $_SERVER['PHP_SELF']);
 	if ('test' === $path_parts[1])
 		$path_parts = '<a href="http://bueltge.de">bueltge.de</a> &raquo; <a href="http://bueltge.de/' . $path_parts[1] . '/">' . $path_parts[1] . '</a> &raquo;';
+	else
+		$path_parts = $path_parts[0];
 	?>
 	<header>
 		<nav><small>Du bist hier: <?php echo $path_parts; ?></small></nav>
@@ -34,14 +36,16 @@
 		<div id="iframevalues">
 			<fieldset>
 				<legend>Set Values for iframes</legend>
-				<p><label for="testurl">Netbook Width</label>
-				<input type="text" name="iframe1width" value="" id="iframe1width"/></p>
 				<p><label for="testurl">Mobile Width</label>
+				<input type="text" name="iframe1width" value="" id="iframe1width"/></p>
+				<p><label for="testurl">Tablet Width</label>
 				<input type="text" name="iframe2width" value="" id="iframe2width"/></p>
+				<p><label for="testurl">Notebook Width</label>
+				<input type="text" name="iframe3width" value="1280" id="iframe3width"/></p>
 				<p><label for="testurl">Desktop Width</label>
-				<input type="text" name="iframe3width" value="" id="iframe3width"/></p>
+				<input type="text" name="iframe4width" value="1600" id="iframe4width"/></p>
 				<p><label for="testurl">Height</label>
-				<input type="text" name="iframeheight" value="" id="iframeheight"/></p>
+				<input type="text" name="iframeheight" value="450" id="iframeheight"/></p>
 				<button onclick="javascript:location.reload(true);" type="submit">Set values!</button>
 				<button onclick="javascript:localStorage.clear();javascript:location.reload(true);" type="reset" class="clear">Clear storage</button>
 			</fieldset>
@@ -49,16 +53,17 @@
 		<?php
 		if ( !empty($_GET['testurl']) ) {
 			$newURL = htmlspecialchars( strip_tags($_GET['testurl']), ENT_QUOTES );
-			if (preg_match("/^(www.)/i", $newURL) )
+			if ( preg_match( "/^(www.)/i", $newURL ) )
 				$iframeurl = 'http://'.$newURL;
-			elseif (preg_match("/^(http:\/\/)/i", $newURL))
+			elseif ( preg_match( "/^(http:\/\/)/i", $newURL ) )
 				$iframeurl = $newURL;
 			else
 				$iframeurl = 'http://www.' . $newURL;
 			
-			echo '<div class="netbook"><strong>Netbook <small id="iframe1widthtxt"> </small></strong><br /><iframe name="netbook" id="iframe1widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
-			echo '<div class="mobile"><strong>Mobile <small id="iframe2widthtxt"> </small></strong><br /><iframe name="mobile" id="iframe2widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
-			echo '<div class="fullsize"><strong>Desktop <small id="iframe3widthtxt"> </small></strong><br /><iframe name="fullsize" id="iframe3widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
+			echo '<div class="mobile"><strong>Mobile <small id="iframe1widthtxt"> </small></strong><br /><iframe name="mobile" id="iframe1widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
+			echo '<div class="tablet"><strong>Tablet <small id="iframe2widthtxt"> </small></strong><br /><iframe name="tablet" id="iframe2widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
+			echo '<div class="notebook"><strong>Notebook <small id="iframe3widthtxt"> </small></strong><br /><iframe name="notebook" id="iframe3widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
+			echo '<div class="desktop"><strong>Desktop <small id="iframe4widthtxt"> </small></strong><br /><iframe name="desktop" id="iframe4widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
 			
 		} else {
 			echo '<p class="empty">No page loads - Enter address!</p>';
@@ -77,21 +82,25 @@
 	
 	<script src="./js/h5utils.js"></script>
 	<script>
-		function getStorage(type, element, normal) {
+		// get storage
+		function getStorage( type, element, normal ) {
 			var storage = window[type + 'Storage'];
 			var width = storage.getItem(element);
-			if (!width) width = normal;
+			if (! width) width = normal;
 			var height = storage.getItem('iframeheight');
-			if (!height) height = 450;
+			if (! height) height = 450;
 			var txt = '(' + width + '×' + height + ')';
 			
 			document.getElementsByName(element)[0].value = width;
 			document.getElementsByName('iframeheight')[0].value = height;
+			//alert(document.getElementById(element+'txt'));
+			if ( document.getElementById(element+'txt') !== null ) {
 			document.getElementById(element + 'txt').firstChild.appendData(txt);
 			document.getElementById(element + 'iframe').setAttribute("width", width);
 			document.getElementById(element + 'iframe').setAttribute("height", height);
+			}
 		}
-		
+		// set storage
 		function setStorage(type, element) {
 			var storage = window[type + 'Storage'];
 			
@@ -104,11 +113,13 @@
 		setStorage('local', 'iframe1width');
 		setStorage('local', 'iframe2width');
 		setStorage('local', 'iframe3width');
+		setStorage('local', 'iframe4width');
 		setStorage('local', 'iframeheight');
 		
-		getStorage('local', 'iframe1width', '650');
-		getStorage('local', 'iframe2width', '450');
-		getStorage('local', 'iframe3width', '960');
+		getStorage('local', 'iframe1width', '320');
+		getStorage('local', 'iframe2width', '768');
+		getStorage('local', 'iframe3width', '1280');
+		getStorage('local', 'iframe4width', '1600');
 	</script>
 	<script src="http://bueltge.de/mv/?js"></script>
 	
