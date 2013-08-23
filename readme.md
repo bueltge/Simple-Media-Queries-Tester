@@ -8,7 +8,7 @@ The solution can be expanded and improved, enjoy.
 [bueltge.de/test/media-query-tester.php](http://bueltge.de/test/media-query-tester.php)
 
 ### Screenshot
-![Example Screenshot](https://github.com/bueltge/Simple-Media-Queries-Tester/master/assets/screenshot.png "Example Screenshot")
+![Example Screenshot](https://raw.github.com/bueltge/Simple-Media-Queries-Tester/master/assets/screenshot.png "Example Screenshot")
 
 ### Contact & Feedback
 The current examples are *designed* and developed by me [Frank Bültge](http://bueltge.de), [G+ Page](https://plus.google.com/111291152590065605567/about?rel=author)
