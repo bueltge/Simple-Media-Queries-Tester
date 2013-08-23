@@ -11,7 +11,10 @@
 	
 </head> 
 <body>
-	<a href="https://github.com/bueltge/Simple-Media-Queries-Tester"><img style="position:absolute;top:0;right:0;border:0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+	<a id="github" href="https://github.com/bueltge/Simple-Media-Queries-Tester">
+		<span>Fork me on GitHub!</span>
+		<span>Get free lemonade!</span>
+	</a>
 	<?php
 	$path_parts = explode('/', $_SERVER['PHP_SELF']);
 	if ('test' === $path_parts[1])
@@ -20,7 +23,9 @@
 		$path_parts = $path_parts[0];
 	?>
 	<header>
-		<nav><small>Du bist hier: <?php echo $path_parts; ?></small></nav>
+		<?php if ( ! empty( $path_parts ) ) { ?>
+		<nav><small>You are here: <?php echo $path_parts; ?></small></nav>
+		<?php } ?>
 		<h1><a href="http://bueltge.de/" title="to the weblog of the author">Simple Media Queries Tester</a></h1>
 	</header>
 	
@@ -30,7 +35,7 @@
 				<legend>Test your URL</legend>
 				<p><label for="testurl">Address</label>
 				<input type="text" name="testurl" id="testurl" value="<?php if ( isset($_GET['testurl']) ) echo htmlspecialchars( strip_tags($_GET['testurl']) ); ?>" placeholder="Input your test url here" size="70" /></p>
-				<button type="submit">Test it!</button>
+				<button class="button" type="submit">Test it!</button>
 			</fieldset>
 		</form>
 		<div id="iframevalues">
@@ -46,8 +51,8 @@
 				<input type="text" name="iframe4width" value="1600" id="iframe4width"/></p>
 				<p><label for="testurl">Height</label>
 				<input type="text" name="iframeheight" value="450" id="iframeheight"/></p>
-				<button onclick="javascript:location.reload(true);" type="submit">Set values!</button>
-				<button onclick="javascript:localStorage.clear();javascript:location.reload(true);" type="reset" class="clear">Clear storage</button>
+				<button class="button" onclick="javascript:location.reload(true);" type="submit">Set values!</button>
+				<button class="button" onclick="javascript:localStorage.clear();javascript:location.reload(true);" type="reset" class="clear">Clear storage</button>
 			</fieldset>
 		</div>
 		<?php
@@ -60,10 +65,24 @@
 			else
 				$iframeurl = 'http://www.' . $newURL;
 			
-			echo '<div class="mobile"><strong>Mobile <small id="iframe1widthtxt"> </small></strong><br /><iframe name="mobile" id="iframe1widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
-			echo '<div class="tablet"><strong>Tablet <small id="iframe2widthtxt"> </small></strong><br /><iframe name="tablet" id="iframe2widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
-			echo '<div class="notebook"><strong>Notebook <small id="iframe3widthtxt"> </small></strong><br /><iframe name="notebook" id="iframe3widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
-			echo '<div class="desktop"><strong>Desktop <small id="iframe4widthtxt"> </small></strong><br /><iframe name="desktop" id="iframe4widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
+		?>
+		<div class="flex">
+			<div>
+			<strong>Flex <small id="iframe0widthtxt">(width&#x00D7;height)</small></strong><br>
+			<a href="#" class="button" onclick="resize_iframe( 'flexframe', 240, 500 )">S 240&#x00D7;500px</a> 
+			<a href="#" class="button" onclick="resize_iframe( 'flexframe', 500, 800 )">M 500&#x00D7;800px</a> 
+			<a href="#" class="button" onclick="resize_iframe( 'flexframe', 800, 1200 )">L 800&#x00D7;1200px</a> 
+			<a href="#" class="button" onclick="resize_iframe( 'flexframe', 1200, 1920 )">XL 1200&#x00D7;1920px</a>
+			<a href="#" class="button" onclick="set_disco_mode( 'flexframe' )">Disco</a>
+			</div>
+			<iframe name="flex" id="flexframe" seamless="seamless" width="240" height="300" src="<?php echo $iframeurl; ?>"></iframe>
+		</div>
+		<hr>
+		<?php
+			echo '<div class="mobile"><strong>Mobile <small id="iframe1widthtxt"> </small></strong><br><iframe name="mobile" id="iframe1widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
+			echo '<div class="tablet"><strong>Tablet <small id="iframe2widthtxt"> </small></strong><br><iframe name="tablet" id="iframe2widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
+			echo '<div class="notebook"><strong>Notebook <small id="iframe3widthtxt"> </small></strong><br><iframe name="notebook" id="iframe3widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
+			echo '<div class="desktop"><strong>Desktop <small id="iframe4widthtxt"> </small></strong><br><iframe name="desktop" id="iframe4widthiframe" seamless="seamless" src="' . $iframeurl . '"></iframe></div>';
 			
 		} else {
 			echo '<p class="empty">No page loads - Enter address!</p>';
@@ -82,8 +101,46 @@
 	
 	<script src="./js/h5utils.js"></script>
 	<script>
+		var id,
+		    height = 800,
+		    width,
+		    min = 240,
+		    max = 1900,
+		    rwidth,
+		    renew,
+		    intm;
+		
+		function resize_iframe( id, width, height ) {
+			
+			kill_disco_mode( renew );
+			
+			document.getElementById( id ).height = height + "px";
+			document.getElementById( id ).width  = width + "px";
+		}
+		
+		// disco mode id a idea from Brad Frost
+		// @see http://bradfrostweb.com/demo/ish/
+		function set_disco_mode( id ) {
+			
+			renew = setInterval( function() {
+				
+				rwidth = Math.floor( Math.random() * ( max - min + 1 ) ) + min;
+				
+				document.getElementById( id ).width = rwidth + "px";
+				document.getElementById(id).height  = height + "px";
+				
+			}, 500 );
+		}
+		
+		function kill_disco_mode( intm ) {
+			
+			clearInterval( intm );
+			intm = false;
+		}
+		
 		// get storage
 		function getStorage( type, element, normal ) {
+			
 			var storage = window[type + 'Storage'];
 			var width = storage.getItem(element);
 			if (! width) width = normal;
